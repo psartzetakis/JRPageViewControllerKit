@@ -45,7 +45,6 @@ public final class PageViewControllerScrollViewDelegate <PageViewFactory:PageVie
        
         //figure if the scroll is from left to right or vice versa
         if self.lastContentOffset < scrollView.contentOffset.x{
-            print("right to left")
 
             //check if we are on the last page we continue scrolling towards nothing...
             if self.indexScrollViewDidDecelerate != self.numberOfChildren - 1{
@@ -66,7 +65,7 @@ public final class PageViewControllerScrollViewDelegate <PageViewFactory:PageVie
 
         }else{
             //left to right
-            print("left to right")
+            
             //check if we are in the paging and we are scrolling on the left where nothing exists
             if self.indexScrollViewDidDecelerate != 0{
                 self.dismissingIndex = activeIndex + 1 < self.numberOfChildren - 1 ? activeIndex + 1 : self.numberOfChildren - 1

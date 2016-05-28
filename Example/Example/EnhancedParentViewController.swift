@@ -19,7 +19,7 @@ class EnhancedParentViewController: UIViewController {
     typealias pageFactory = PageViewControllerFactory<EnhancedChildViewController>
     var datasource : PageViewControllerDatasource<pageFactory,EnhancedChildViewController>?
     
-    //EXTRA
+    //EXTRA functionality
     var scrollViewDelegate:PageViewControllerScrollViewDelegate<pageFactory,EnhancedChildViewController>?
     
     
@@ -42,7 +42,7 @@ class EnhancedParentViewController: UIViewController {
         datasource?.selectedIndexCallBack = {[unowned self] index in
             self.updateUIForIndex(index)
         }
-        //EXTRA
+        //EXTRA functionality
         scrollViewDelegate = PageViewControllerScrollViewDelegate(pageViewControllerDatasource:datasource!)
 
         

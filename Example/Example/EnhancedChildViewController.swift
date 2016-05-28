@@ -32,6 +32,8 @@ class EnhancedChildViewController: UIViewController,ScrollPercentageProtocol {
         
     }
     
+    
+    //EXTRA functionality
     func isBeingPresentedFromDirection(direction:ScrollDirection,withVisiblePercentage percentage:CGFloat){
         visibleLabel.text = "visible \(percentage) from \(direction.description)"
         

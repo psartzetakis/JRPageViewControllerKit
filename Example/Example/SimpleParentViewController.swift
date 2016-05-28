@@ -19,7 +19,6 @@ class SimpleParentViewController: UIViewController {
     
     typealias pageFactory = PageViewControllerFactory<SimpleChildViewController>
     var datasource : PageViewControllerDatasource<pageFactory,SimpleChildViewController>?
-    //var scrollViewDelegate:PageViewControllerScrollViewDelegate<pageFactory,ChildViewController>?
 
     
     override func viewDidLoad() {
