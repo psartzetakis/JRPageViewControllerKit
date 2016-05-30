@@ -19,7 +19,7 @@ For now all you have to do is:
 The UIViewController that will be the child of the UIPageViewController has to adopt at least the ```ChildPageViewControllerProtocol ```.
 I have noticed the using the native pageControl of UIPageViewController results in a pointing at the wrong dot if the users starts scrollings fast as a result i keep track of the active index that UIPageViewController is currently presenting by updating the ```selectedIndex``` in the ```viewWillAppear``` and ```viewDidAppear``` of the child UIViewController.
 
-```
+```swift
 import PageViewControllerKit
 class SimpleChildViewController: UIViewController,ChildPageViewControllerProtocol {
 
@@ -39,14 +39,14 @@ class SimpleChildViewController: UIViewController,ChildPageViewControllerProtoco
 
 The UIViewController that will have the UIPageViewController's instance will have to instatiate a ```PageViewControllerDatasource```.
 
-```
+```swift
     typealias pageFactory = PageViewControllerFactory<SimpleChildViewController>
     var datasource : PageViewControllerDatasource<pageFactory,SimpleChildViewController>?
 ```
 
 In the ViewDidLoad after you initialize the pageViewController all you have to do is pass an instance of ```PageViewControllerFactory``` to the ```PageViewControllerDatasource```.
 
-```
+```swift
    override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +67,7 @@ In the ViewDidLoad after you initialize the pageViewController all you have to d
 
 If you want your child UIViewController to have knowledge about how much of its view being presented during presentation or is being dismissed during dismisal all you have to do is to make the child UIViewController adopt the ```ScrollPercentageProtocol```. ```ScrollPercentageProtocol``` inherits from ```ChildPageViewControllerProtocol ``` and provides two additional methods.
 
-```
+```swift
     func isBeingPresentedFromDirection(direction:ScrollDirection,withVisiblePercentage percentage:CGFloat)
     func isBeingDismissedFromDirection(direction:ScrollDirection,withHiddenPercentage percentage:CGFloat)
 ```
@@ -77,11 +77,11 @@ where you will get the information that you need.
 
 All your UIViewController (who has the instance of UIPageViewController) needs to do is create an instance of ```PageViewControllerScrollViewDelegate``` and pass as argument the instance of ```PageViewControllerDatasource```.
 
-```
+```swift
     var scrollViewDelegate:PageViewControllerScrollViewDelegate<pageFactory,EnhancedChildViewController>?
 ```
 
-```
+```swift
     override func viewDidLoad() {
         super.viewDidLoad()
         ..
