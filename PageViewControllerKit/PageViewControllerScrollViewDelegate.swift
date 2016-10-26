@@ -5,80 +5,81 @@
 //
 
 import UIKit
-public enum ScrollDirection:Int{
-    case Right = 0, Left = 1
-    public var description:String{
+public enum ScrollDirection: Int{
+    case right = 0, left = 1
+    public var description: String{
         switch self{
-        case .Right: return "Right"
-        case .Left: return "Left"
+        case .right: return "Right"
+        case .left: return "Left"
         }
     }
 }
-public protocol ScrollPercentageProtocol:ChildPageViewControllerProtocol{
-    func isBeingPresentedFromDirection(direction:ScrollDirection,withVisiblePercentage percentage:CGFloat)
-    func isBeingDismissedFromDirection(direction:ScrollDirection,withHiddenPercentage percentage:CGFloat)
+
+public protocol ScrollPercentageProtocol: ChildPageViewControllerProtocol{
+    func isBeingPresentedFromDirection(_ direction: ScrollDirection, withVisiblePercentage percentage: CGFloat)
+    func isBeingDismissedFromDirection(_ direction: ScrollDirection, withHiddenPercentage percentage: CGFloat)
 
 }
-public final class PageViewControllerScrollViewDelegate <PageViewFactory:PageViewControllerProtocol,ViewController:ScrollPercentageProtocol where PageViewFactory.ViewController == ViewController>: NSObject {
+public final class PageViewControllerScrollViewDelegate <PageViewFactory: PageViewControllerProtocol,ViewController: ScrollPercentageProtocol>: NSObject where PageViewFactory.ViewController == ViewController {
 
-    public weak var scrollView:UIScrollView?
-    public var scrollViewDelegate:UIScrollViewDelegate{return mCustomScrollViewDelegate}
-    private var numberOfChildren:Int
-    private var scrollWidth:CGFloat{
+    public weak var scrollView: UIScrollView?
+    public var scrollViewDelegate: UIScrollViewDelegate { return mCustomScrollViewDelegate }
+    fileprivate var numberOfChildren: Int
+    fileprivate var scrollWidth: CGFloat {
         return scrollView?.bounds.width ?? 0
     }
     
-    private var pageViewControllerDatasource:PageViewControllerDatasource<PageViewFactory,ViewController>
-    private var lastContentOffset:CGFloat = 0
-    private var dismissingIndex:Int = 0
-    private var presentingIndex:Int = 0
-    private var indexScrollViewDidDecelerate = 0
+    fileprivate var pageViewControllerDatasource: PageViewControllerDatasource<PageViewFactory,ViewController>
+    fileprivate var lastContentOffset: CGFloat = 0
+    fileprivate var dismissingIndex: Int = 0
+    fileprivate var presentingIndex: Int = 0
+    fileprivate var indexScrollViewDidDecelerate = 0
     
-    lazy private var mCustomScrollViewDelegate:CustomScrollViewDelegate = CustomScrollViewDelegate (
+    lazy fileprivate var mCustomScrollViewDelegate: CustomScrollViewDelegate = CustomScrollViewDelegate (
         scrollViewDidScroll:{ [unowned self] scrollView in
         
         let activeIndex = self.pageViewControllerDatasource.displayedIndex
         let factor = self.scrollWidth
-        let offset =  scrollView.contentOffset.x % factor
+        let offset =  scrollView.contentOffset.x.truncatingRemainder(dividingBy: factor)
         var percentage:CGFloat = offset/factor
         let childrenArray = self.pageViewControllerDatasource.childrenArray
        
         //figure if the scroll is from left to right or vice versa
-        if self.lastContentOffset < scrollView.contentOffset.x{
+        if self.lastContentOffset < scrollView.contentOffset.x {
 
             //check if we are on the last page we continue scrolling towards nothing...
-            if self.indexScrollViewDidDecelerate != self.numberOfChildren - 1{
+            if self.indexScrollViewDidDecelerate != self.numberOfChildren - 1 {
                 self.presentingIndex = activeIndex
                 self.dismissingIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : 0
                 
                 //if we are going to present something that it has currently shown then there is no need for informing anyone
-                if self.presentingIndex != self.indexScrollViewDidDecelerate{
-                    if self.dismissingIndex != self.presentingIndex{
-                        childrenArray[self.dismissingIndex]?.isBeingDismissedFromDirection(.Left, withHiddenPercentage: 1-percentage)
+                if self.presentingIndex != self.indexScrollViewDidDecelerate {
+                    if self.dismissingIndex != self.presentingIndex {
+                        childrenArray[self.dismissingIndex]?.isBeingDismissedFromDirection(.left, withHiddenPercentage: 1-percentage)
                     }
                     if percentage != 0 {
-                        childrenArray[self.presentingIndex]?.isBeingPresentedFromDirection(.Right, withVisiblePercentage: percentage)
+                        childrenArray[self.presentingIndex]?.isBeingPresentedFromDirection(.right, withVisiblePercentage: percentage)
                     }
                 }
 
             }
 
-        }else{
+        } else {
             //left to right
             
             //check if we are in the paging and we are scrolling on the left where nothing exists
-            if self.indexScrollViewDidDecelerate != 0{
+            if self.indexScrollViewDidDecelerate != 0 {
                 self.dismissingIndex = activeIndex + 1 < self.numberOfChildren - 1 ? activeIndex + 1 : self.numberOfChildren - 1
                 self.presentingIndex = activeIndex
                 percentage = 1-percentage
                 
                  //if we are going to present something that it has currently shown then there is no need for informing anyone
-                if self.presentingIndex != self.indexScrollViewDidDecelerate{
+                if self.presentingIndex != self.indexScrollViewDidDecelerate {
                     if self.dismissingIndex != self.presentingIndex{
-                        childrenArray[self.dismissingIndex]?.isBeingDismissedFromDirection(.Right, withHiddenPercentage: 1-percentage)
+                        childrenArray[self.dismissingIndex]?.isBeingDismissedFromDirection(.right, withHiddenPercentage: 1-percentage)
                     }
-                    if percentage != 0{
-                        childrenArray[self.presentingIndex]?.isBeingPresentedFromDirection(.Left, withVisiblePercentage: percentage)
+                    if percentage != 0 {
+                        childrenArray[self.presentingIndex]?.isBeingPresentedFromDirection(.left, withVisiblePercentage: percentage)
                     }
 
                 }
@@ -87,18 +88,18 @@ public final class PageViewControllerScrollViewDelegate <PageViewFactory:PageVie
         }
         self.lastContentOffset = scrollView.contentOffset.x
         
-        },scrollViewDidEndDecelerating:{[unowned self] scrollView in
+        },scrollViewDidEndDecelerating:{ [unowned self] scrollView in
             let childrenArray = self.pageViewControllerDatasource.childrenArray
 
             self.indexScrollViewDidDecelerate = self.pageViewControllerDatasource.displayedIndex
-            childrenArray[self.indexScrollViewDidDecelerate]?.isBeingPresentedFromDirection(.Right, withVisiblePercentage: 1.0)
+            childrenArray[self.indexScrollViewDidDecelerate]?.isBeingPresentedFromDirection(.right, withVisiblePercentage: 1.0)
         })
 
     
-    public init(pageViewControllerDatasource:PageViewControllerDatasource<PageViewFactory,ViewController>) {
-        if let pageViewController = pageViewControllerDatasource.pageViewController{
-            for view in pageViewController.view.subviews{
-                if let scrollView = view as? UIScrollView{
+    public init(pageViewControllerDatasource: PageViewControllerDatasource<PageViewFactory,ViewController>) {
+        if let pageViewController = pageViewControllerDatasource.pageViewController {
+            for view in pageViewController.view.subviews {
+                if let scrollView = view as? UIScrollView {
                     self.scrollView = scrollView
                 }
             }
@@ -114,21 +115,21 @@ public final class PageViewControllerScrollViewDelegate <PageViewFactory:PageVie
 }
 
 
-public final class CustomScrollViewDelegate:NSObject,UIScrollViewDelegate{
+public final class CustomScrollViewDelegate: NSObject, UIScrollViewDelegate {
     
-    typealias ScrollViewDidScroll = (UIScrollView)->()
-    let scrollViewDidScroll:ScrollViewDidScroll
-    let scrollViewDidEndDecelerating:ScrollViewDidScroll
+    typealias ScrollViewDidScroll = (UIScrollView) -> ()
+    let scrollViewDidScroll: ScrollViewDidScroll
+    let scrollViewDidEndDecelerating: ScrollViewDidScroll
     
-    init(scrollViewDidScroll:ScrollViewDidScroll,scrollViewDidEndDecelerating:ScrollViewDidScroll){
+    init(scrollViewDidScroll: @escaping ScrollViewDidScroll, scrollViewDidEndDecelerating: @escaping ScrollViewDidScroll) {
         self.scrollViewDidScroll = scrollViewDidScroll
         self.scrollViewDidEndDecelerating = scrollViewDidEndDecelerating
     }
     
-    @objc public func scrollViewDidScroll(scrollView: UIScrollView) {
+    @objc public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollViewDidScroll(scrollView)
     }
-    @objc public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    @objc public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollViewDidEndDecelerating(scrollView)
     }
 }

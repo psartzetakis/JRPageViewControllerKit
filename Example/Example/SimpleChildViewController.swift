@@ -20,10 +20,10 @@ class SimpleChildViewController: UIViewController,ChildPageViewControllerProtoco
         label.text = labelName
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         selectedIndexCallBack?(selectedIndex)
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         selectedIndexCallBack?(selectedIndex)
 
     }

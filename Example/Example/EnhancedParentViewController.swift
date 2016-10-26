@@ -12,7 +12,7 @@ class EnhancedParentViewController: UIViewController {
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var containerView: UIView!
-    var pageViewController:UIPageViewController!
+    var pageViewController: UIPageViewController!
     var numberOfPages = 5;
     
     
@@ -26,14 +26,14 @@ class EnhancedParentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pageControl.numberOfPages = numberOfPages;
-        pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+        pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.view.frame =  containerView.bounds
         addChildViewController(pageViewController)
         containerView.addSubview(pageViewController.view)
-        pageViewController.didMoveToParentViewController(self)
+        pageViewController.didMove(toParentViewController: self)
         
         let factory = PageViewControllerFactory { [unowned self] (index) -> EnhancedChildViewController? in
-            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("EnhancedChildViewController") as! EnhancedChildViewController
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "EnhancedChildViewController") as! EnhancedChildViewController
             viewController.selectedIndex = index
             viewController.labelName = "label \(index)"
             return viewController
@@ -48,7 +48,7 @@ class EnhancedParentViewController: UIViewController {
         
     }
     
-    func updateUIForIndex(index:Int){
+    func updateUIForIndex(_ index:Int){
         pageControl.currentPage = index
         
     }

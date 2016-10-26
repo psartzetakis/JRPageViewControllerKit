@@ -24,21 +24,21 @@ class EnhancedChildViewController: UIViewController,ScrollPercentageProtocol {
         label.text = labelName
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         selectedIndexCallBack?(selectedIndex)
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         selectedIndexCallBack?(selectedIndex)
         
     }
     
     
     //EXTRA functionality
-    func isBeingPresentedFromDirection(direction:ScrollDirection,withVisiblePercentage percentage:CGFloat){
+    func isBeingPresentedFromDirection(_ direction:ScrollDirection,withVisiblePercentage percentage:CGFloat){
         visibleLabel.text = "visible \(percentage) from \(direction.description)"
         
     }
-    func isBeingDismissedFromDirection(direction:ScrollDirection,withHiddenPercentage percentage:CGFloat){
+    func isBeingDismissedFromDirection(_ direction:ScrollDirection,withHiddenPercentage percentage:CGFloat){
         hiddenLabel.text = "hidden \(1 - percentage) from \(direction.description)"
 
     }
