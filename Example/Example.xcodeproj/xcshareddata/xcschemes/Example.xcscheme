@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
       <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1D051B2C1CF97D3000765571"
+               BuildableName = "JRPageViewControllerKit.framework"
+               BlueprintName = "JRPageViewControllerKit"
+               ReferencedContainer = "container:../JRPageViewControllerKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
@@ -14,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D051B2C1CF97D3000765571"
-               BuildableName = "PageViewControllerKit.framework"
-               BlueprintName = "PageViewControllerKit"
-               ReferencedContainer = "container:PageViewControllerKit.xcodeproj">
+               BlueprintIdentifier = "1D59C5D71CF9897C0036CE9F"
+               BuildableName = "Example.app"
+               BlueprintName = "Example"
+               ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +46,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1D051B361CF97D3000765571"
-               BuildableName = "PageViewControllerKitTests.xctest"
-               BlueprintName = "PageViewControllerKitTests"
-               ReferencedContainer = "container:PageViewControllerKit.xcodeproj">
+               BlueprintIdentifier = "1D59C5EB1CF9897C0036CE9F"
+               BuildableName = "ExampleTests.xctest"
+               BlueprintName = "ExampleTests"
+               ReferencedContainer = "container:Example.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1D59C5F61CF9897C0036CE9F"
+               BuildableName = "ExampleUITests.xctest"
+               BlueprintName = "ExampleUITests"
+               ReferencedContainer = "container:Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D051B2C1CF97D3000765571"
-            BuildableName = "PageViewControllerKit.framework"
-            BlueprintName = "PageViewControllerKit"
-            ReferencedContainer = "container:PageViewControllerKit.xcodeproj">
+            BlueprintIdentifier = "1D59C5D71CF9897C0036CE9F"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
+            ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -61,15 +85,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D051B2C1CF97D3000765571"
-            BuildableName = "PageViewControllerKit.framework"
-            BlueprintName = "PageViewControllerKit"
-            ReferencedContainer = "container:PageViewControllerKit.xcodeproj">
+            BlueprintIdentifier = "1D59C5D71CF9897C0036CE9F"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
+            ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +104,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1D051B2C1CF97D3000765571"
-            BuildableName = "PageViewControllerKit.framework"
-            BlueprintName = "PageViewControllerKit"
-            ReferencedContainer = "container:PageViewControllerKit.xcodeproj">
+            BlueprintIdentifier = "1D59C5D71CF9897C0036CE9F"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
+            ReferencedContainer = "container:Example.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

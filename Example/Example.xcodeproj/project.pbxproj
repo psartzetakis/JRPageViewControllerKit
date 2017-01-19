@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1D59C5DC1CF9897C0036CE9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C5DB1CF9897C0036CE9F /* AppDelegate.swift */; };
-		1D59C5DE1CF9897C0036CE9F /* SimpleParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C5DD1CF9897C0036CE9F /* SimpleParentViewController.swift */; };
 		1D59C5E11CF9897C0036CE9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D59C5DF1CF9897C0036CE9F /* Main.storyboard */; };
 		1D59C5E31CF9897C0036CE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D59C5E21CF9897C0036CE9F /* Assets.xcassets */; };
 		1D59C5E61CF9897C0036CE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D59C5E41CF9897C0036CE9F /* LaunchScreen.storyboard */; };
 		1D59C5F11CF9897C0036CE9F /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C5F01CF9897C0036CE9F /* ExampleTests.swift */; };
 		1D59C5FC1CF9897C0036CE9F /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C5FB1CF9897C0036CE9F /* ExampleUITests.swift */; };
-		1D59C6141CF98A5C0036CE9F /* PageViewControllerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D59C60F1CF989A10036CE9F /* PageViewControllerKit.framework */; };
-		1D59C6161CF98A840036CE9F /* SimpleChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C6151CF98A840036CE9F /* SimpleChildViewController.swift */; };
-		1D59C61A1CF992E80036CE9F /* EnhancedParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C6191CF992E80036CE9F /* EnhancedParentViewController.swift */; };
-		1D59C61C1CF992FF0036CE9F /* EnhancedChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C61B1CF992FF0036CE9F /* EnhancedChildViewController.swift */; };
+		799A23A01E2F849C0062EE44 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A239F1E2F849C0062EE44 /* MainViewController.swift */; };
+		799A23CC1E2F8A260062EE44 /* JRPageViewControllerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799A23C91E2F89C10062EE44 /* JRPageViewControllerKit.framework */; };
+		799A23CD1E2F8A260062EE44 /* JRPageViewControllerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 799A23C91E2F89C10062EE44 /* JRPageViewControllerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		799A23D21E2F90170062EE44 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799A23D11E2F90170062EE44 /* ChildViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,33 +34,46 @@
 			remoteGlobalIDString = 1D59C5D71CF9897C0036CE9F;
 			remoteInfo = Example;
 		};
-		1D59C60E1CF989A10036CE9F /* PBXContainerItemProxy */ = {
+		799A23C81E2F89C10062EE44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1D59C6091CF989A10036CE9F /* PageViewControllerKit.xcodeproj */;
+			containerPortal = 1D59C6091CF989A10036CE9F /* JRPageViewControllerKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1D051B2D1CF97D3000765571;
-			remoteInfo = PageViewControllerKit;
+			remoteInfo = JRPageViewControllerKit;
 		};
-		1D59C6101CF989A10036CE9F /* PBXContainerItemProxy */ = {
+		799A23CA1E2F89C10062EE44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1D59C6091CF989A10036CE9F /* PageViewControllerKit.xcodeproj */;
+			containerPortal = 1D59C6091CF989A10036CE9F /* JRPageViewControllerKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 1D051B371CF97D3000765571;
-			remoteInfo = PageViewControllerKitTests;
+			remoteInfo = JRPageViewControllerKitTests;
 		};
-		1D59C6121CF989DF0036CE9F /* PBXContainerItemProxy */ = {
+		799A23CE1E2F8A260062EE44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1D59C6091CF989A10036CE9F /* PageViewControllerKit.xcodeproj */;
+			containerPortal = 1D59C6091CF989A10036CE9F /* JRPageViewControllerKit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 1D051B2C1CF97D3000765571;
-			remoteInfo = PageViewControllerKit;
+			remoteInfo = JRPageViewControllerKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		799A23D01E2F8A260062EE44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				799A23CD1E2F8A260062EE44 /* JRPageViewControllerKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D59C5D81CF9897C0036CE9F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D59C5DB1CF9897C0036CE9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1D59C5DD1CF9897C0036CE9F /* SimpleParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleParentViewController.swift; sourceTree = "<group>"; };
 		1D59C5E01CF9897C0036CE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D59C5E21CF9897C0036CE9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D59C5E51CF9897C0036CE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,10 +84,9 @@
 		1D59C5F71CF9897C0036CE9F /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D59C5FB1CF9897C0036CE9F /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		1D59C5FD1CF9897C0036CE9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D59C6091CF989A10036CE9F /* PageViewControllerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PageViewControllerKit.xcodeproj; path = ../PageViewControllerKit.xcodeproj; sourceTree = "<group>"; };
-		1D59C6151CF98A840036CE9F /* SimpleChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleChildViewController.swift; sourceTree = "<group>"; };
-		1D59C6191CF992E80036CE9F /* EnhancedParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancedParentViewController.swift; sourceTree = "<group>"; };
-		1D59C61B1CF992FF0036CE9F /* EnhancedChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancedChildViewController.swift; sourceTree = "<group>"; };
+		1D59C6091CF989A10036CE9F /* JRPageViewControllerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JRPageViewControllerKit.xcodeproj; path = ../JRPageViewControllerKit.xcodeproj; sourceTree = "<group>"; };
+		799A239F1E2F849C0062EE44 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		799A23D11E2F90170062EE44 /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D59C6141CF98A5C0036CE9F /* PageViewControllerKit.framework in Frameworks */,
+				799A23CC1E2F8A260062EE44 /* JRPageViewControllerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,11 +118,11 @@
 		1D59C5CF1CF9897C0036CE9F = {
 			isa = PBXGroup;
 			children = (
-				1D59C6091CF989A10036CE9F /* PageViewControllerKit.xcodeproj */,
-				1D59C5DA1CF9897C0036CE9F /* Example */,
-				1D59C5EF1CF9897C0036CE9F /* ExampleTests */,
-				1D59C5FA1CF9897C0036CE9F /* ExampleUITests */,
+				1D59C5DA1CF9897C0036CE9F /* Source */,
+				1D59C5EF1CF9897C0036CE9F /* Tests */,
+				1D59C5FA1CF9897C0036CE9F /* UITests */,
 				1D59C5D91CF9897C0036CE9F /* Products */,
+				1D59C6091CF989A10036CE9F /* JRPageViewControllerKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,63 +136,45 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1D59C5DA1CF9897C0036CE9F /* Example */ = {
+		1D59C5DA1CF9897C0036CE9F /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1D59C6181CF992CE0036CE9F /* Enhanced Example */,
-				1D59C6171CF991B20036CE9F /* Simple Example */,
 				1D59C5DB1CF9897C0036CE9F /* AppDelegate.swift */,
+				799A239F1E2F849C0062EE44 /* MainViewController.swift */,
+				799A23D11E2F90170062EE44 /* ChildViewController.swift */,
 				1D59C5DF1CF9897C0036CE9F /* Main.storyboard */,
 				1D59C5E21CF9897C0036CE9F /* Assets.xcassets */,
 				1D59C5E41CF9897C0036CE9F /* LaunchScreen.storyboard */,
 				1D59C5E71CF9897C0036CE9F /* Info.plist */,
 			);
-			path = Example;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		1D59C5EF1CF9897C0036CE9F /* ExampleTests */ = {
+		1D59C5EF1CF9897C0036CE9F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				1D59C5F01CF9897C0036CE9F /* ExampleTests.swift */,
 				1D59C5F21CF9897C0036CE9F /* Info.plist */,
 			);
-			path = ExampleTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		1D59C5FA1CF9897C0036CE9F /* ExampleUITests */ = {
+		1D59C5FA1CF9897C0036CE9F /* UITests */ = {
 			isa = PBXGroup;
 			children = (
 				1D59C5FB1CF9897C0036CE9F /* ExampleUITests.swift */,
 				1D59C5FD1CF9897C0036CE9F /* Info.plist */,
 			);
-			path = ExampleUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
-		1D59C60A1CF989A10036CE9F /* Products */ = {
+		799A23C41E2F89C10062EE44 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D59C60F1CF989A10036CE9F /* PageViewControllerKit.framework */,
-				1D59C6111CF989A10036CE9F /* PageViewControllerKitTests.xctest */,
+				799A23C91E2F89C10062EE44 /* JRPageViewControllerKit.framework */,
+				799A23CB1E2F89C10062EE44 /* JRPageViewControllerKitTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1D59C6171CF991B20036CE9F /* Simple Example */ = {
-			isa = PBXGroup;
-			children = (
-				1D59C5DD1CF9897C0036CE9F /* SimpleParentViewController.swift */,
-				1D59C6151CF98A840036CE9F /* SimpleChildViewController.swift */,
-			);
-			name = "Simple Example";
-			sourceTree = "<group>";
-		};
-		1D59C6181CF992CE0036CE9F /* Enhanced Example */ = {
-			isa = PBXGroup;
-			children = (
-				1D59C6191CF992E80036CE9F /* EnhancedParentViewController.swift */,
-				1D59C61B1CF992FF0036CE9F /* EnhancedChildViewController.swift */,
-			);
-			name = "Enhanced Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,11 +187,12 @@
 				1D59C5D41CF9897C0036CE9F /* Sources */,
 				1D59C5D51CF9897C0036CE9F /* Frameworks */,
 				1D59C5D61CF9897C0036CE9F /* Resources */,
+				799A23D01E2F8A260062EE44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1D59C6131CF989DF0036CE9F /* PBXTargetDependency */,
+				799A23CF1E2F8A260062EE44 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -248,7 +242,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Panagiotis Sartzetakis";
 				TargetAttributes = {
 					1D59C5D71CF9897C0036CE9F = {
@@ -280,8 +274,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 1D59C60A1CF989A10036CE9F /* Products */;
-					ProjectRef = 1D59C6091CF989A10036CE9F /* PageViewControllerKit.xcodeproj */;
+					ProductGroup = 799A23C41E2F89C10062EE44 /* Products */;
+					ProjectRef = 1D59C6091CF989A10036CE9F /* JRPageViewControllerKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -294,18 +288,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1D59C60F1CF989A10036CE9F /* PageViewControllerKit.framework */ = {
+		799A23C91E2F89C10062EE44 /* JRPageViewControllerKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = PageViewControllerKit.framework;
-			remoteRef = 1D59C60E1CF989A10036CE9F /* PBXContainerItemProxy */;
+			path = JRPageViewControllerKit.framework;
+			remoteRef = 799A23C81E2F89C10062EE44 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1D59C6111CF989A10036CE9F /* PageViewControllerKitTests.xctest */ = {
+		799A23CB1E2F89C10062EE44 /* JRPageViewControllerKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = PageViewControllerKitTests.xctest;
-			remoteRef = 1D59C6101CF989A10036CE9F /* PBXContainerItemProxy */;
+			path = JRPageViewControllerKitTests.xctest;
+			remoteRef = 799A23CA1E2F89C10062EE44 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -342,11 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D59C61C1CF992FF0036CE9F /* EnhancedChildViewController.swift in Sources */,
-				1D59C61A1CF992E80036CE9F /* EnhancedParentViewController.swift in Sources */,
-				1D59C5DE1CF9897C0036CE9F /* SimpleParentViewController.swift in Sources */,
 				1D59C5DC1CF9897C0036CE9F /* AppDelegate.swift in Sources */,
-				1D59C6161CF98A840036CE9F /* SimpleChildViewController.swift in Sources */,
+				799A23A01E2F849C0062EE44 /* MainViewController.swift in Sources */,
+				799A23D21E2F90170062EE44 /* ChildViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,10 +371,10 @@
 			target = 1D59C5D71CF9897C0036CE9F /* Example */;
 			targetProxy = 1D59C5F81CF9897C0036CE9F /* PBXContainerItemProxy */;
 		};
-		1D59C6131CF989DF0036CE9F /* PBXTargetDependency */ = {
+		799A23CF1E2F8A260062EE44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = PageViewControllerKit;
-			targetProxy = 1D59C6121CF989DF0036CE9F /* PBXContainerItemProxy */;
+			name = JRPageViewControllerKit;
+			targetProxy = 799A23CE1E2F8A260062EE44 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -420,8 +412,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -443,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -466,8 +460,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -483,9 +479,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -494,8 +491,9 @@
 		1D59C6011CF9897C0036CE9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.sartzetakis.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,8 +504,9 @@
 		1D59C6021CF9897C0036CE9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.sartzetakis.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
