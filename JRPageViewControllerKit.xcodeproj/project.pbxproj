@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D051B311CF97D3000765571 /* PageViewControllerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D051B301CF97D3000765571 /* PageViewControllerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D051B311CF97D3000765571 /* JRPageViewControllerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D051B301CF97D3000765571 /* JRPageViewControllerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D051B381CF97D3000765571 /* JRPageViewControllerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D051B2D1CF97D3000765571 /* JRPageViewControllerKit.framework */; };
 		1D051B3D1CF97D3000765571 /* PageViewControllerKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D051B3C1CF97D3000765571 /* PageViewControllerKitTests.swift */; };
 		1D59C5131CF9800F0036CE9F /* PageViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D59C5101CF9800F0036CE9F /* PageViewControllerDataSource.swift */; };
@@ -28,7 +28,7 @@
 
 /* Begin PBXFileReference section */
 		1D051B2D1CF97D3000765571 /* JRPageViewControllerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JRPageViewControllerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1D051B301CF97D3000765571 /* PageViewControllerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewControllerKit.h; sourceTree = "<group>"; };
+		1D051B301CF97D3000765571 /* JRPageViewControllerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRPageViewControllerKit.h; sourceTree = "<group>"; };
 		1D051B321CF97D3000765571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D051B371CF97D3000765571 /* JRPageViewControllerKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JRPageViewControllerKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D051B3C1CF97D3000765571 /* PageViewControllerKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewControllerKitTests.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 				1D59C5111CF9800F0036CE9F /* PageViewControllerFactory.swift */,
 				799A23D51E2FB6130062EE44 /* CustomPageViewControllerDataSource.swift */,
 				799A23D31E2F9D430062EE44 /* CustomPageViewControllerDelegate.swift */,
-				1D051B301CF97D3000765571 /* PageViewControllerKit.h */,
+				1D051B301CF97D3000765571 /* JRPageViewControllerKit.h */,
 				1D051B321CF97D3000765571 /* Info.plist */,
 			);
 			path = Source;
@@ -105,7 +105,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D051B311CF97D3000765571 /* PageViewControllerKit.h in Headers */,
+				1D051B311CF97D3000765571 /* JRPageViewControllerKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
