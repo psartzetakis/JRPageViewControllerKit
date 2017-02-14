@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var containerView: UIView!
     
-    var pageViewControllerManager: PageViewControllerManager!
+    var pageViewControllerManager: PageViewControllerManager<ChildViewController>!
     var pageViewController: UIPageViewController!
 
     
@@ -35,16 +35,17 @@ class MainViewController: UIViewController {
         pageViewController.didMove(toParentViewController: self)
         
         
-        let factory = PageViewControllerFactory { [unowned self] index -> ChildViewController? in
+        let factory: ((Int) -> ChildViewController?) = { [unowned self] index -> ChildViewController? in
             let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
             viewController.index = index
             return viewController
         }
-        pageViewControllerManager = PageViewControllerManager(pageViewController: pageViewController, pageViewControllerFactory: factory, totalPages: 6, initialIndex: initialIndex)
+        
+        pageViewControllerManager = PageViewControllerManager(pageViewController: pageViewController, viewControllerForIndex: factory, totalPages: 6, initialIndex: initialIndex)
         pageViewController.dataSource = pageViewControllerManager.pageViewControllerDataSource
         pageViewController.delegate = pageViewControllerManager.pageViewControllerDelegate
         
-        pageViewControllerManager.didScrollToIndex = { [unowned self] index in
+        pageViewControllerManager.didScrollToIndex = { index in
             print("callback index \(index)")
         }
         

@@ -13,7 +13,7 @@ public final class CustomPageViewControllerDataSource: NSObject, UIPageViewContr
     let viewControllerAfterViewController: ViewControllerAfterOrBefore
     let viewControllerBeforeViewController: ViewControllerAfterOrBefore
     
-    init(viewControllerAfterViewController: @escaping ViewControllerAfterOrBefore,viewControllerBeforeViewController :@escaping ViewControllerAfterOrBefore) {
+    init(viewControllerAfterViewController: @escaping ViewControllerAfterOrBefore, viewControllerBeforeViewController: @escaping ViewControllerAfterOrBefore) {
         self.viewControllerAfterViewController = viewControllerAfterViewController
         self.viewControllerBeforeViewController = viewControllerBeforeViewController
     }
