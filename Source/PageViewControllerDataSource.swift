@@ -107,7 +107,6 @@ public final class PageViewControllerManager<T: UIViewController>: NSObject, UIS
         return nextViewController
     }
     
-    
     var maxValue: CGFloat = 0
     let maxTolerance: CGFloat = 0.8
     let minTolerance: CGFloat = 0.2
