@@ -15,49 +15,34 @@ class MainViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     
     var pageViewControllerManager: PageViewControllerManager<ChildViewController>!
-    var pageViewController: UIPageViewController!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPageViewController(with: 0)
-        // Do any additional setup after loading the view.
-    }
-
-    private func setupPageViewController(with initialIndex: Int) {
         
-        //attach the pageViewController
-        let options = [UIPageViewControllerOptionInterPageSpacingKey: 0]
-        pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
-        pageViewController.view.frame =  containerView.bounds
-        addChildViewController(pageViewController)
-        containerView.addSubview(pageViewController.view)
-        pageViewController.didMove(toParentViewController: self)
-        
-        
+        // 1. Create a factory that will return `UIViewController` for a specific index.
         let factory: ((Int) -> ChildViewController?) = { [unowned self] index -> ChildViewController? in
             let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
             viewController.index = index
             return viewController
         }
         
-        pageViewControllerManager = PageViewControllerManager(pageViewController: pageViewController, viewControllerForIndex: factory, totalPages: 6, initialIndex: initialIndex)
-        pageViewController.dataSource = pageViewControllerManager.pageViewControllerDataSource
-        pageViewController.delegate = pageViewControllerManager.pageViewControllerDelegate
+        // 2. Instantiate a `PageViewControllerManager`.
+        pageViewControllerManager = PageViewControllerManager(insertIn: containerView, inViewController: self, totalPages: 6, viewControllerForIndex: factory)
         
+        // 3. Get notified when user swipped to another `UIViewController`.
         pageViewControllerManager.didScrollToIndex = { index in
-            print("callback index \(index)")
+            // The index that the user has just scrolled.
         }
         
-        pageViewControllerManager.nextViewControllerAppears = { [unowned self] direction, visibleRatio, originalIndex, destinationIndex in
-            let ratio = String(format: "%.2f", visibleRatio)
-            let text = "direction:\(direction.rawValue), ratio:\(ratio),\n from:\(originalIndex) to \(destinationIndex)"
+        // 4. Get notified when another `UIViewController` is about to be appear.
+        pageViewControllerManager.nextViewControllerAppears = { [unowned self] direction, ratio, destinationIndex in
+            let ratio = String(format: "%.2f", ratio)
+            let text = "direction:\(direction.rawValue), ratio:\(ratio),\n  to \(destinationIndex)"
             self.header.text = text
         }
-
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        pageViewControllerManager.show(index: sender.tag, animated: true)
+        pageViewControllerManager.show(viewControllerAt: sender.tag, animated: true)
     }
 }
