@@ -7,13 +7,19 @@
 //
 
 import XCTest
-@testable import PageViewControllerKit
+@testable import JRPageViewControllerKit
 
 class PageViewControllerKitTests: XCTestCase {
     
+    let fakeView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 530))
+    let mainViewController = UIViewController(nibName: nil, bundle: nil)
+   
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        UIApplication.shared.keyWindow?.rootViewController = mainViewController
+        _ = mainViewController.view
+
     }
     
     override func tearDown() {
@@ -21,16 +27,50 @@ class PageViewControllerKitTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func test_bothDelegate_andDataSource_areNotNil() {
+        
+        // GIVEN: A factory.
+        let factory: ((Int) -> FakeViewController) = { index in
+            return FakeViewController(index: index)
         }
+        
+        // WHEN: We instantiate a  pageViewControllerManager.
+        let pageViewControllerManager = PageViewControllerManager(insertIn: fakeView, inViewController: mainViewController, totalPages: 2, viewControllerForIndex: factory)
+        
+        // THEN: The delegate and the dataSource are not nil.
+        XCTAssertNotNil(pageViewControllerManager.dataSource)
+        XCTAssertNotNil(pageViewControllerManager.delegate)
+
+    }
+
+    func test_thatWhenCallingShowWithinRange_theViewControllerThatIsAppeared_isTheCorrectOne() {
+        
+        // GIVEN: A factory and pageViewControllerManager.
+        let factory: ((Int) -> FakeViewController) = { index in
+            return FakeViewController(index: index)
+        }
+        let pageViewControllerManager = PageViewControllerManager(insertIn: fakeView, inViewController: mainViewController, totalPages: 2, viewControllerForIndex: factory)
+
+        // WHEN: We request to show a viewController at a specific index.
+        pageViewControllerManager.show(viewControllerAt: 1, animated: false)
+
+        // THEN: The viewController that is displayed is the correct one.
+        XCTAssertEqual(pageViewControllerManager.activeIndex, 1)
     }
     
+    func test_thatWhenCallingShowOutOfRange_theViewController_doesNotChange() {
+        
+        // GIVEN: A factory and pageViewControllerManager.
+        let factory: ((Int) -> FakeViewController) = { index in
+            return FakeViewController(index: index)
+        }
+        let pageViewControllerManager = PageViewControllerManager(insertIn: fakeView, inViewController: mainViewController, totalPages: 2, viewControllerForIndex: factory)
+        
+        // WHEN: We request to show a viewController for an index that doesn't exist.
+        pageViewControllerManager.show(viewControllerAt: 2, animated: false)
+        
+        // THEN: The viewController that is displayed remains unchanged.
+        XCTAssertEqual(pageViewControllerManager.activeIndex, 0)
+    }
+
 }
