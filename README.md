@@ -47,11 +47,10 @@ pageViewControllerManager.didScrollToIndex = { index in
     // The index that the user has just scrolled.
 }
 
-// 4. Get notified when another `UIViewController` is about to be appear.
+// 4. Get notified when another `UIViewController` is about to be appeared.
 pageViewControllerManager.nextViewControllerAppears = { [unowned self] direction, ratio, destinationIndex in
     let ratio = String(format: "%.2f", ratio)
     let text = "direction:\(direction.rawValue), ratio:\(ratio),\n  to \(destinationIndex)"
-
 }
 ````
 
