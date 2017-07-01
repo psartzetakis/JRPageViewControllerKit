@@ -42,22 +42,22 @@ import JRPageViewControllerKit
 
 ````swift
 
-// 1. Create a factory that will return `UIViewController` for a specific index.
+// 1. Create a factory that will return viewController for a specific index.
 let factory: ((Int) -> ChildViewController?) = { [unowned self] index -> ChildViewController? in
     let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
     viewController.index = index
     return viewController
 }
 
-// 2. Instantiate a `PageViewControllerManager`.
+// 2. Instantiate a PageViewControllerManager.
 let pageViewControllerManager = PageViewControllerManager(insertIn: containerView, inViewController: self, totalPages: 6, viewControllerForIndex: factory)
 
-// 3. Get notified when user swiped to another `UIViewController`.
+// 3. Get notified when user swiped to another viewController.
 pageViewControllerManager.didScrollToIndex = { index in
     // The index that the user has just scrolled.
 }
 
-// 4. Get notified when another `UIViewController` is about to be appeared.
+// 4. Get notified when another viewController is about to be appeared.
 pageViewControllerManager.nextViewControllerAppears = { [unowned self] direction, ratio, destinationIndex in
     let ratio = String(format: "%.2f", ratio)
     let text = "direction:\(direction.rawValue), ratio:\(ratio),\n  to \(destinationIndex)"
