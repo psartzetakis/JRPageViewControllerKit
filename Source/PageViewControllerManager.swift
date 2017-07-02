@@ -105,7 +105,7 @@ public final class PageViewControllerManager<T: UIViewController>: NSObject, UIS
     ///   - viewControllerForIndex: A closure which provides an index and requires back a `UIViewController` instance.
     public init(insertIn containerView: UIView,
                 boundsRect: CGRect = .zero,
-                spacing: CGFloat = 20,
+                spacing: CGFloat = 0,
                 inViewController: UIViewController,
                 totalPages: Int,
                 initialIndex: Int = 0,
@@ -125,7 +125,9 @@ public final class PageViewControllerManager<T: UIViewController>: NSObject, UIS
         pageViewController.didMove(toParentViewController: inViewController)
 
         super.init()
-        
+
+        scrollView?.delegate = self
+
         dataSource = customDataSource()
         delegate = customDelegate()
 
@@ -133,7 +135,6 @@ public final class PageViewControllerManager<T: UIViewController>: NSObject, UIS
         pageViewController.setViewControllers([initialViewController!], direction: .forward, animated: true, completion: nil)
         pageViewController.dataSource = dataSource
         pageViewController.delegate = delegate
-        scrollView?.delegate = self
 
     }
     
@@ -155,11 +156,11 @@ public final class PageViewControllerManager<T: UIViewController>: NSObject, UIS
     ///
     /// - Parameter scrollView: The scrollview where the delegate returns.
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard var width = pageViewController?.view.superview?.frame.size.width else { return }
-        width += spacing
+        let width = scrollView.frame.width
         guard let destinationIndex = childrenViewControllers.index(where: { $0 == destinationViewController }) else { return }
+
         let offset = max(0, scrollView.contentOffset.x)
-        
+
         //when offset == width a swipe has been completed and the offset resets and send ratio = 0, so we discard that case.
         guard offset != width else { return }
         let ratio = offset / width
