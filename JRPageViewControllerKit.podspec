@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'JRPageViewControllerKit'
-  s.version          = '1.0.0'
+  s.version          = '1.0.5'
   s.summary          = 'JRPageViewControllerKit wraps all the boilerplate code that is required for the implementation of `UIPageViewController`. '
 
   s.homepage         = 'https://github.com/psartzetakis/JRPageViewControllerKit'
