@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
         }
         
         // 2. Instantiate a PageViewControllerManager.
-        pageViewControllerManager = PageViewControllerManager(insertIn: containerView, inViewController: self, totalPages: 6, viewControllerForIndex: factory)
+        pageViewControllerManager = PageViewControllerManager(insertIn: containerView, boundsRect:CGRect(x: 120, y: 20, width: 200, height: 220) , spacing: 10, inViewController: self, totalPages: 6, viewControllerForIndex: factory)
         
         // 3. Get notified when user swipped to another viewController.
         pageViewControllerManager.didScrollToIndex = { index in
