@@ -4,6 +4,13 @@ The changelog for `JRPageViewControllerKit`. Also see the [releases](https://git
 
 --------------------------------------
 
+1.1.0
+-----
+
+## Changes
+
+- The project has now been migrated to Swift 4.
+
 1.0.5
 -----
 
