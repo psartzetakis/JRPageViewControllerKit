@@ -16,8 +16,8 @@ This library aims to wrap all the boilerplate code that is required for the impl
 ## Requirements
 
 * iOS 8+
-* Swift 3.0
-* Xcode 8
+* Swift 4.0
+* Xcode 9
 
 ## Installation
 
